@@ -93,7 +93,7 @@
         <button type="submit" class="btn btn-primary" name="submit">submit</button>
       </div>
       <div class="col-sm-3 d-grid">
-        <a href="index.php" class="btn btn-outline-primary" role="button"></a>
+        <a href="index.php" class="btn btn-outline-primary" role="button">cancel</a>
       </div>
     </div>
 
