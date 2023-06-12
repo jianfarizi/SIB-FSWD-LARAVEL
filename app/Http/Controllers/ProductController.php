@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -33,12 +33,18 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+         // ubah nama file
+         $imageName = time() . '.' . $request->image->extension();
+
+         // simpan file ke folder public/product
+         Storage::putFileAs('public/product', $request->image, $imageName);
         $product = Product::create([
             'category_id' => $request->category,
             'name' => $request->name,
             'price' => $request->price,
             'sale_price' => $request->sale_price,
             'brands' => $request->brand,
+            'image' => $imageName,
         ]);
 
         return redirect()->route('product.index');
@@ -59,16 +65,22 @@ class ProductController extends Controller
     
     public function update(Request $request, $id)
     {
+        // ubah nama file
+        $imageName = time() . '.' . $request->image->extension();
+
+        // simpan file ke folder public/product
+        Storage::putFileAs('public/product', $request->image, $imageName);
        
         $product = Product::find($id);
         
-        
+ 
         $product->update([
             'category_id' => $request->category,
             'name' => $request->name,
             'price' => $request->price,
             'sale_price' => $request->sale_price,
             'brands' => $request->brand,
+            'image' => $imageName,
         ]);
         
        

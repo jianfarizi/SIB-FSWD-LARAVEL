@@ -7,7 +7,7 @@
 
             <div class="card mb-4">
                 <div class="card-body">
-                    <form action="{{ route('product.store') }}" method="POST">
+                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
@@ -38,6 +38,14 @@
                                     <option value="{{ $brand->name }}">{{ $brand->name }}</option>
                                 @endforeach
                             </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Product Image</label>
+                            <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept=".jpg, .jpeg, .png., .webp">
+                            @error('image')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('product.index') }}" class="btn btn-secondary">Cancel</a>

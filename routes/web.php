@@ -86,4 +86,13 @@ Route::get('/slider/edit/{id}', [SliderController::class, 'edit'])->name('slider
 Route::put('/slider/{id}', [SliderController::class, 'update'])->name('slider.update'); 
 Route::delete('/slider/{id}', [SliderController::class, 'destroy'])->name('slider.destroy'); 
 
+
+// user
+
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+        Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+        Route::post('/user', [UserController::class, 'store'])->name('user.store');
+        Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 route::get('/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index'); 
