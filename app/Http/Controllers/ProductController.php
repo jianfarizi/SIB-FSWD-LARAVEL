@@ -65,23 +65,37 @@ class ProductController extends Controller
     
     public function update(Request $request, $id)
     {
-        // ubah nama file
-        $imageName = time() . '.' . $request->image->extension();
 
-        // simpan file ke folder public/product
-        Storage::putFileAs('public/product', $request->image, $imageName);
-       
-        $product = Product::find($id);
-        
- 
-        $product->update([
-            'category_id' => $request->category,
-            'name' => $request->name,
-            'price' => $request->price,
-            'sale_price' => $request->sale_price,
-            'brands' => $request->brand,
-            'image' => $imageName,
-        ]);
+        if ($request->hasFile('image') ) {
+
+            $old_image = Product::find($id)->image;
+            Storage::delete('public/product'.$old_image);
+            // ubah nama file
+            $imageName = time() . '.' . $request->image->extension();
+    
+            // simpan file ke folder public/product
+            Storage::putFileAs('public/product', $request->image, $imageName);
+           
+            $product = Product::find($id);
+            
+     
+            $product->update([
+                'category_id' => $request->category,
+                'name' => $request->name,
+                'price' => $request->price,
+                'sale_price' => $request->sale_price,
+                'brands' => $request->brand,
+                'image' => $imageName,
+            ]);
+        }else{
+            Product::where('id', $id)->update([
+                'category_id' => $request->category,
+                'name' => $request->name,
+                'price' => $request->price,
+                'sale_price' => $request->sale_price,
+                'brands' => $request->brand,
+            ]);
+        }
         
        
         return redirect()->route('product.index');
