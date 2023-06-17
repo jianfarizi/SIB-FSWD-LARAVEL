@@ -49,6 +49,10 @@
                         <form action="{{ route('register.store') }}" method="POST">
                             @csrf
                             <div class="form-floating mb-3">
+                                <input type="hidden" class="form-control" id="floatingInput" name="role" value="user">
+                                <label for="floatingInput"></label>
+                            </div>
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" name="name">
                                 <label for="floatingInput">Name</label>
                             </div>

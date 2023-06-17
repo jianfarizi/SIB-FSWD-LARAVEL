@@ -5,14 +5,14 @@
 
     
         
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading">Produk</div>
                             <a class="nav-link" href="{{ route('dashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
 
                             @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'staf')
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">Management</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Produk
