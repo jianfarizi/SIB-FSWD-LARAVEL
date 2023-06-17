@@ -4,9 +4,9 @@
     <main>
         <div class="container-fluid px-4">
             <h1 class="my-4">Product</h1>
-
+            @if(Auth::user()->name == 'admin')
             <a class="btn btn-primary mb-2" href="{{ route('product.create') }}" role="button">Create New</a>
-
+            @endif
             <div class="card mb-4">
                 <div class="card-body">
                     <table id="dataTable" class="table table-striped">
@@ -18,6 +18,7 @@
                                 <th>Price</th>
                                 <th>Sale Price</th>
                                 <th>Brand</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,7 +38,7 @@
                                             <img src="{{ asset('storage/product/' . $product->image) }}" alt="{{ $product->name }}" style="max-width: 50px">
                                         @endif
                                     </td>
-                                    <td>
+                                    
                                     <td>
                                         <form onsubmit="return confirm('Are you sure? ');" action="{{ route('product.destroy', $product->id) }}" method="POST">
                                             <a href="{{ route('product.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>

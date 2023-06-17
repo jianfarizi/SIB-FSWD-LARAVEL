@@ -21,7 +21,7 @@
                             @foreach ($roles as $role)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $role->nama }}</td>
+                                    <td>{{ $role->name }}</td>
                                     <td>
                                         <form action="{{ route('role.destroy', $role->id) }}" method="POST" class="d-inline">
                                             <a href="{{ route('role.edit', $role->id) }}" class="btn btn-warning">Edit</a>

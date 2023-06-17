@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 
-                @if (Session::get('error'))
+                @if (Session::get('succes'))
                     <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                         <strong>Oops!</strong> Data tidak lengkap. Akun anda gagal dibuat.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -62,6 +62,7 @@
                                 <input type="email" class="form-control" id="floatingInput" name="email">
                                 <label for="floatingInput">Email address</label>
                             </div>
+                            
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="floatingPassword" name="password">
                                 <label for="floatingPassword">Password</label>

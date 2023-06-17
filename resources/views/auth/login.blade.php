@@ -43,7 +43,7 @@
                     </div>
                 @endif
 
-                @if (Session::get('error'))
+                @if (Session::get('eror'))
                     <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                         <strong>Oops!</strong> Email atau password salah.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
