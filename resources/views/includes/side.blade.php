@@ -3,13 +3,16 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
-    
+                        @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'staf')
+
+                        <div class="sb-sidenav-menu-heading">Produk</div>
+                        <a class="nav-link" href="{{ route('dashboard')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+
+                        @endif
         
-                            <div class="sb-sidenav-menu-heading">Produk</div>
-                            <a class="nav-link" href="{{ route('dashboard')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
 
                             @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'staf')
                             <div class="sb-sidenav-menu-heading">Management</div>
@@ -20,10 +23,11 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('category.index') }}">Kategori</a>
+                                    <a class="nav-link" href="{{ route('category.index') }}">
+Accessories</a>
                                     <a class="nav-link" href="{{ route('product.index') }}">daftar produk</a>
                                     <a class="nav-link" href="{{ route('slider.index') }}">Galeri</a>
-                                    <a class="nav-link" href="{{ route('brand.index') }}">brand</a>
+                                    <a class="nav-link" href="{{ route('brand.index') }}">Treatment</a>
                                 </nav>
                             </div>
                             @endif
@@ -41,6 +45,12 @@
 
                             </div>
                             @endif
+                            @if (Auth::user()->role->name == 'user')
+                <a class="nav-link" href="{{ route('product.index') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Product
+                </a>
+            @endif
                            
                         </div>
                     </div>

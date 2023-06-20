@@ -3,7 +3,7 @@
 @section('conten')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="my-4">Create Brand</h1>
+            <h1 class="my-4">Create Treatment</h1>
 
             <div class="card mb-4">
                 <div class="card-body">

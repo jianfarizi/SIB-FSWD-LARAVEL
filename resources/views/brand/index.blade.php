@@ -3,7 +3,7 @@
 @section('conten')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="my-4">Brand</h1>
+            <h1 class="my-4">Treatment</h1>
 
             <a class="btn btn-primary mb-2" href="{{ route('brand.create') }}" role="button">Create New</a>
 

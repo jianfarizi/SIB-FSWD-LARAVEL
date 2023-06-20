@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProductController extends Controller
@@ -14,12 +15,12 @@ class ProductController extends Controller
     {
         $product = Product::with('category')->get();
 
-        return view('product.index', ['products' => $product]);
+       
 
-        if (Auth::user()->role->name == 'User') {
-            return view('product.card', ['products' => $products]);
+        if (Auth::user()->role->name == 'user') {
+            return view('product.card', ['products' => $product]);
         } else {
-            return view('product.index', ['products' => $products]);
+            return view('product.index', ['products' => $product]);
         }
     }
 
@@ -42,7 +43,6 @@ class ProductController extends Controller
             'category_id' => $request->category,
             'name' => $request->name,
             'price' => $request->price,
-            'sale_price' => $request->sale_price,
             'brands' => $request->brand,
             'image' => $imageName,
         ]);

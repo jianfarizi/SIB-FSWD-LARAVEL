@@ -11,6 +11,8 @@ class userController extends Controller
     {
         // Ambil semua data user dari database
         $users = User::with('role')->get();
+
+        
         
         // Tampilkan halaman index
         return view('user.index', compact('users'));
