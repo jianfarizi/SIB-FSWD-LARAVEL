@@ -4,7 +4,7 @@
     <main>
         <div class="container-fluid px-4">
             <h1 class="my-4">Product</h1>
-            @if(Auth::user()->name == 'admin')
+            @if(Auth::user()->role->name == 'admin')
             <a class="btn btn-primary mb-2" href="{{ route('product.create') }}" role="button">Create New</a>
             @endif
             <div class="card mb-4">

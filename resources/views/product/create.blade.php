@@ -28,9 +28,9 @@
                         </div>
                        
                         <div class="mb-3">
-                            <label for="brand" class="form-label">Brand</label>
+                            <label for="brand" class="form-label">Treatment</label>
                             <select class="form-select" aria-label="brand" id="brand" name="brand">
-                                <option selected disabled>- Choose Brand -</option>
+                                <option selected disabled>- Pilih Treatment -</option>
                                 @foreach ($brands as $brand)
                                     <option value="{{ $brand->name }}">{{ $brand->name }}</option>
                                 @endforeach
